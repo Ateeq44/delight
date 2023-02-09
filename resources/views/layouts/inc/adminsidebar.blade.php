@@ -5,7 +5,7 @@
                 <span class="icon title">
                     <i class="fa-solid fa-cart-plus fa-1x"></i>
                 </span>
-                <span class="title" >Crazy Buy</span>
+                <span class="title" >Delight</span>
             </a>
         </li>
 

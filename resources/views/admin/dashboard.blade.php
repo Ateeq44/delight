@@ -64,7 +64,7 @@ Dashboard
     <div class="recentOrders">
         <div class="cardHeader">
             <h2>Recent Orders</h2>
-            <a href="#" class="btn">View All</a>
+            <a href="{{url('orders')}}" class="btn">View All</a>
         </div>
 
         <table class="table table-bordered">
@@ -82,7 +82,7 @@ Dashboard
                     <td>{{date_format($item->created_at, 'd-m-Y')}}</td>
                     <td>{{$item->tracking_no}}</td>
                     <td>${{$item->total_price}}</td>
-                    <td>{{$item->status == '0' ? 'Pending' : 'delivered'}}</td>
+                    <td>{{$item->status == '0' ? 'New Order' : ''}}</td>
                 </tr>
                 @endforeach
             </tbody>

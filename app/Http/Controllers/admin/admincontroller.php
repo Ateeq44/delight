@@ -15,7 +15,7 @@ class admincontroller extends Controller
     public function dashboard()
     {
         $product = product::all();
-        $orders = order::orderBy('created_at', 'DESC')->take(5)->get();
+        $orders = order::orderBy('created_at', 'DESC')->where('status', '0')->take(5)->get();
 
         return view('admin.dashboard', compact('product', 'orders'));
     }

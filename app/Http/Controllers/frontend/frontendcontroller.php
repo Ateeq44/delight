@@ -31,7 +31,7 @@ class frontendcontroller extends Controller
         $blogp = blog::where('popular', '1')->take(6)->get();
 
 
-        $feature_product = product::with('category')->where('trending', '1')->take(10)->get();
+        $feature_product = product::with('category')->where('trending', '1')->orderBy('created_at', 'DESC')->take(10)->get();
         $all_category = category::where('popular', '1')->get();
         $trending_category = category::where('popular', '1')->take(4)->orderBy('created_at', 'DESC')->get();
         $cartitem = cart::where('user_id', Auth::id())->get();

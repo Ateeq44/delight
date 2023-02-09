@@ -11,7 +11,10 @@
             <div class="card">
                 <div class="card-header">
                     <h4>Orders Accepted</h4>
-                    <a href="{{url('orders')}}"  class="btn btn-primary float-right">New Order</a>
+                    <a href="{{url('order-Accepted')}}"  class="btn btn-primary float-left">Accepted</a>
+                    <a href="{{url('order-Packed')}}"  class="btn btn-primary float-left">Packed </a>
+                    <a href="{{url('order-Shipped')}}"  class="btn btn-primary float-left"> Shipped</a>
+                    <a href="{{url('order-Delivered')}}"  class="btn btn-primary float-left">Delivered</a>
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered">

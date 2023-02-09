@@ -422,7 +422,14 @@ My Profile
 						</div>
 						<div class="col-lg-8">
 							<div class="d-sm-flex align-items-sm-start justify-content-sm-between">
-								<div class="status">Status : {{$item->status == '0' ? 'Pending' : 'Delivered'}}</div>
+								<div class="status">
+									<label style="font-size:15px">Payment Status</label>
+									@if($item->payment_id == null)
+									<span style="font-weight: 400 !important; font-size:15px !important;"  class="badge badge-danger">Pending</span>
+									@else
+									<span  style="font-weight: 400 !important; font-size:15px !important;" class="badge badge-success">Completed</span>
+									@endif
+								</div>
 								<a href="{{url('view_order/'.$item->id)}}" class="btn btn-primary text-uppercase">order info</a>
 							</div>
 							<div class="progressbar-track">

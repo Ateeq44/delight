@@ -25,27 +25,6 @@ Welcome To Delight
                 </div>
             </div>
             <div class="col-lg-9 mt-2">
-                <!-- <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="{{url('/search')}}" method="GET">
-                            @csrf
-                            <div class="hero__search__categories">
-                                All Categories
-                            </div>
-                            <input type="search" name="search_product" placeholder="What do you need?">
-                            <button type="submit" class="site-btn">SEARCH</button>
-                        </form>
-                    </div>
-                    <div class="hero__search__phone">
-                        <div class="hero__search__phone__icon">
-                            <i class="fa fa-phone"></i>
-                        </div>
-                        <div class="hero__search__phone__text">
-                            <h5>+65 11.188.888</h5>
-                            <span>support 24/7 time</span>
-                        </div>
-                    </div>
-                </div> -->
                 <div class="hero__item set-bg" data-setbg="public/images/header.JPG" style="background-image: url(&quot;public/images/header.JPG&quot;);">
                 </div>
             </div>
@@ -75,7 +54,7 @@ Welcome To Delight
 <section class="categories" >
     <div class="container">
         <div class="section-title">
-            <h2 class="text-center mt" style="font-size: 40px;">Recent Products</h2>
+            <h2 class="text-center mt-5" style="font-size: 40px;">Recent Products</h2>
         </div>
         <div class="row">
             <div class="categories__slider owl-carousel">
