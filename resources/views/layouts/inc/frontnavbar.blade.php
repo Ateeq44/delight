@@ -331,7 +331,7 @@ padding: 0.5rem 1rem;
   </form> -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="btn btn-link" href="{{url('cart')}}"><i class="fa fa-shopping-bag text-success fa-2x"></i> <span class="badge badge-danger">{{$cartitem->count()}}</span></a>
+      <a class="btn btn-link" href="{{url('cart')}}"><i class="fa-sharp fa-solid fa-cart-shopping text-success fa-2x"></i> <span class="badge badge-danger">{{$cartitem->count()}}</span></a>
     </li>
     <li class="nav-item">
       <a class="btn btn-link" href="{{url('wishlist')}}"><i class="fa fa-heart text-success fa-2x"></i> <span class="badge badge-danger">{{$wishlist->count()}}</span></a>
