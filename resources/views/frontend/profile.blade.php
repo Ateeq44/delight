@@ -319,7 +319,7 @@ My Profile
 				<div class="h4 text-white">Account</div>
 				<ul>
 					<li class="active">
-						<a href="#" class="text-decoration-none d-flex align-items-start">
+						<a href="{{url('my_order')}}" class="text-decoration-none d-flex align-items-start">
 							<div class="fas fa-box pt-2 me-3"></div>
 							<div class="d-flex flex-column">
 								<div class="link">My Account</div>
@@ -328,7 +328,7 @@ My Profile
 						</a>
 					</li>
 					<li>
-						<a href="#" class="text-decoration-none d-flex align-items-start">
+						<a href="{{url('my_order')}}" class="text-decoration-none d-flex align-items-start">
 							<div class="fas fa-box-open pt-2 me-3"></div>
 							<div class="d-flex flex-column">
 								<div class="link">My Orders</div>
@@ -461,7 +461,6 @@ My Profile
 			</div>
 		</div>
 	</div>
-
 </div>
 
 @include('layouts.inc.footer')

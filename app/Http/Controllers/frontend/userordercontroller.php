@@ -16,7 +16,7 @@ class userordercontroller extends Controller
         $cartitem = cart::where('user_id', Auth::id())->get();
         $wishlist = wishlist::where('user_id', Auth::id())->get();
 
-        $order = order::where('user_id', Auth::id())->get();
+        $order = order::orderBy('created_at', 'DESC')->where('user_id', Auth::id())->get();
         return view("frontend.order.view", compact('order', 'cartitem', 'wishlist'));
     }
     public function view($id)
