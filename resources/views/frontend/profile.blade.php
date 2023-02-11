@@ -380,7 +380,7 @@ My Profile
 						alt="">
 						<div class="d-flex align-items-center mt-2">
 							<div class="tag">Orders placed</div>
-							<div class="ms-auto number ml-2">{{$order->count()}}</div>
+							<div class="ms-auto number ml-2">{{$orders_count->count()}}</div>
 						</div>
 					</div>
 					<div class="box me-4 my-1 bg-light">

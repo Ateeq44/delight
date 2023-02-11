@@ -35,9 +35,13 @@ class HomeController extends Controller
         $wishlist = wishlist::where('user_id', Auth::id())->get();
         $cartitem = cart::where('user_id', Auth::id())->get();
         $order = order::orderBy('created_at', 'DESC')->where('user_id', Auth::id())->take(2)->get();
+        $orders_count = order::where('user_id', Auth::id())->get();
         $order_status = order::where('user_id', Auth::id())->take(2)->get();
-        return view('frontend.profile', compact('wishlist', 'cartitem', 'order'));
+
+        $rating = rating::where('user_id', Auth::id())->get();
+
+        return view('frontend.profile', compact('wishlist', 'cartitem', 'order', 'orders_count'));
     }
     
-   
+
 }
