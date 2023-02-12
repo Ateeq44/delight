@@ -38,7 +38,7 @@ class HomeController extends Controller
         $orders_count = order::where('user_id', Auth::id())->get();
         $order_status = order::where('user_id', Auth::id())->take(2)->get();
 
-        $rating = rating::where('user_id', Auth::id())->get();
+        $order_process = order::where('user_id', Auth::id())->get();
 
         return view('frontend.profile', compact('wishlist', 'cartitem', 'order', 'orders_count'));
     }
