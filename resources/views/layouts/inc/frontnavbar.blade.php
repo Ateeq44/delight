@@ -66,8 +66,8 @@
 .sub-menu.navbar-light .navbar-nav .nav-link.active,
 .sub-menu.navbar-light .navbar-nav .nav-link.show,
 .sub-menu.navbar-light .navbar-nav .show > .nav-link {
-  border-bottom: 3px solid #007bff;
-  color: #007bff;
+  border-bottom: 3px solid #28a745;
+  color: #28a745;
 }
 
 .navbar .navbar-toggler {

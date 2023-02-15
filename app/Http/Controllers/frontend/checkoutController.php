@@ -134,6 +134,9 @@ class checkoutController extends Controller
 
             $cartitem = cart::where('user_id', Auth::id())->get();
             cart::destroy($cartitem);
+            $payment = Paymentmethods::where('user_id', Auth::id())->get();
+            Paymentmethods::destroy($payment);
+
             return view('frontend.order.placeordershow', compact('order', 'cartitem', 'wishlist'));
 
             // if($request->action == 'homepage'){
