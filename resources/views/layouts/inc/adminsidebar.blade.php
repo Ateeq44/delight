@@ -44,7 +44,23 @@
                 <span class="title">View Category</span>
             </a>
         </li>
+        <li>
+            <a href="{{url('submit-subcategory')}}">
+                <span class="icon title">
+                    <i class="fa-solid fa-circle-plus fa-1x"></i>
+                </span>
+                <span class="title">Add Subcategory</span>
+            </a>
+        </li>
 
+        <li>
+            <a href="{{url('View-subcategory')}}">
+                <span class="icon title">
+                    <i class="fa-solid fa-eye fa-1x"></i>
+                </span>
+                <span class="title">View Subcategory</span>
+            </a>
+        </li>
         <li>
             <a href="{{url('submit-product')}}">
                 <span class="icon title">

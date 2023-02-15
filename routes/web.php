@@ -81,6 +81,14 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('cate-delete/{id}', [App\Http\Controllers\admin\categoryController::class, 'delete']);
     Route::get('cate-edit/{id}', [App\Http\Controllers\admin\categoryController::class, 'edit']);
     Route::post('update-category/{id}', [App\Http\Controllers\admin\categoryController::class, 'update']);
+    // sub category
+    Route::get('submit-subcategory', [App\Http\Controllers\admin\SubCategoryController::class, 'create']);
+    Route::post('insert-subcategory', [App\Http\Controllers\admin\SubCategoryController::class, 'store']);
+    Route::get('View-subcategory', [App\Http\Controllers\admin\SubCategoryController::class, 'show']);
+    Route::get('subcate-delete/{id}', [App\Http\Controllers\admin\SubCategoryController::class, 'delete']);
+    Route::get('subcate-edit/{id}', [App\Http\Controllers\admin\SubCategoryController::class, 'edit']);
+    Route::post('update-subcategory/{id}', [App\Http\Controllers\admin\SubCategoryController::class, 'update']);
+
     // Product
     Route::get('view-product', [App\Http\Controllers\admin\productController::class, 'ViewProduct']);
     Route::get('submit-product', [App\Http\Controllers\admin\productController::class, 'product']);
