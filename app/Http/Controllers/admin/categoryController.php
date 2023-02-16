@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\category;
 use Illuminate\Support\Facades\File;
+use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Str;
 
 
 class categoryController extends Controller
@@ -28,7 +30,7 @@ class categoryController extends Controller
 
         }
         $category->name = $request->input('name');
-        $category->slug = $request->input('slug');
+        $category->slug = Str::slug($request->name);
         $category->status = $request->input('status') == TRUE ? '1':'0';
         $category->popular = $request->input('popular') == TRUE ? '1':'0';
 

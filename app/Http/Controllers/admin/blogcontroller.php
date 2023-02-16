@@ -10,7 +10,7 @@ use App\Models\blogreview;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Str;
 class blogcontroller extends Controller
 {
     public function addBlog()
@@ -32,7 +32,7 @@ class blogcontroller extends Controller
         }
         // $blog->cate_id = $request->input('category_id');
         $blog->name = $request->input('name');
-        $blog->slug = $request->input('slug');
+        $blog->slug = Str::slug($request->name);
         $blog->blog = $request->input('blog');
         $blog->user_id = $request->input('author');
         $blog->status = $request->input('status') == TRUE ? '1':'0';

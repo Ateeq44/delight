@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SubCategory;
 use App\Models\category;
-
+use Illuminate\Support\Str;
 class SubCategoryController extends Controller
 {
 	public function create()
@@ -21,7 +21,7 @@ class SubCategoryController extends Controller
 		$subcategory = new SubCategory();
 		$subcategory->category_id = $request->input('cate_id');
 		$subcategory->subcategory = $request->input('subcategory');
-		$subcategory->slug = $request->input('slug');
+		$subcategory->slug = Str::slug($request->name);
 		$subcategory->status = $request->input('status') == TRUE ? '1':'0';
 		$subcategory->popular = $request->input('popular') == TRUE ? '1':'0';
 		$subcategory->save();
