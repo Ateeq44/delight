@@ -21,21 +21,12 @@
                     <label for="name">Sub Category</label>
                     <input type="text" class="form-control" value="{{ $SubCategory->subcategory }}" name="subcategory">
                 </div>
-
-                <div class="col-md-6 mb-3">
-                    <label for="name">Slug</label>
-                    <input type="text" class="form-control" value="{{ $SubCategory->slug }}" name="slug">
-                </div>
-
                 <div class="col-md-6 mb-3">
                     <label for="name">Status</label>
                     <input type="checkbox" class="ml-3" {{$SubCategory->status == "1" ? 'checked':''}}  name="status">
 
                 </div>
-                <div class="col-md-6 mb-3 ">
-                    <label for="name">Popular</label>
-                    <input type="checkbox" class="ml-3" {{$SubCategory->popular == "1" ? 'checked':''}} checked  name="popular">
-                </div>
+
                 <div class="col-md-12 mb-3">
                     <button class="btn btn-primary">Submit</button>
                 </div>

@@ -16,8 +16,8 @@ class blogcontroller extends Controller
     {
         $wishlist = wishlist::where('user_id', Auth::id())->get();
         $cartitem = cart::where('user_id', Auth::id())->get();
-        $blog = blog::where('popular', '1')->take(4000)->get();
-        $blogp = blog::where('popular', '1')->take(6)->get();
+        $blog = blog::where('status', '1')->take(4000)->get();
+        $blogp = blog::where('status', '1')->take(6)->get();
         return view('frontend.blog', compact('blog', 'blogp', 'cartitem', 'wishlist'));
     }
     public function blogshow($id)

@@ -10,9 +10,9 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Image</th>
                         <th scope="col">Category</th>
                         <th scope="col">Created At</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -23,9 +23,16 @@
                     @foreach ($category as $item)
                     <tr>
                         <th scope="row">{{$i++}}</th>
-                        <td><img  style="width: 100px;"  src="{{ asset('/upload/category').'/'.$item->image}}"></td>
                         <td>{{$item->name}}</td>
                         <td>{{$item->created_at->format('d/m/Y')}}</td>
+                        <td>
+                            @if($item->status == 1)
+                            <span class="badge bg-success text-white px-3 py-2" style="font-size:15px;">Active</span>
+                            @else
+                            <span class="badge bg-danger text-white px-3 py-2" style="font-size:15px;">Pending</span> 
+
+                            @endif
+                        </td>
                         <td class="w-25">
                             <a class="btn-inline-block btn btn-primary" href="{{url('cate-edit/'.$item->id)}}"><i class="fa fa-edit  fa-2x" aria-hidden="true"></i></a>
                             <a class="btn-inline-block btn btn-danger ml-3" href="{{url('cate-delete/'.$item->id)}}"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>

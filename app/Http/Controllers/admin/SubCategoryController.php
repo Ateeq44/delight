@@ -21,11 +21,10 @@ class SubCategoryController extends Controller
 		$subcategory = new SubCategory();
 		$subcategory->category_id = $request->input('cate_id');
 		$subcategory->subcategory = $request->input('subcategory');
-		$subcategory->slug = Str::slug($request->name);
+		$subcategory->slug = Str::slug($request->subcategory);
 		$subcategory->status = $request->input('status') == TRUE ? '1':'0';
-		$subcategory->popular = $request->input('popular') == TRUE ? '1':'0';
 		$subcategory->save();
-		return view('admin.subcategory.view-subcategory');
+		return redirect('submit-subcategory');
 	}
 
 	public function show()
@@ -47,9 +46,8 @@ class SubCategoryController extends Controller
         $subcategory = SubCategory::find($id);
         $subcategory->category_id = $request->input('cate_id');
 		$subcategory->subcategory = $request->input('subcategory');
-		$subcategory->slug = $request->input('slug');
+		$subcategory->slug = Str::slug($request->subcategory);
 		$subcategory->status = $request->input('status') == TRUE ? '1':'0';
-		$subcategory->popular = $request->input('popular') == TRUE ? '1':'0';
         $subcategory->update();
         return redirect('View-subcategory')->with('status', 'Updated Successfully');
     }

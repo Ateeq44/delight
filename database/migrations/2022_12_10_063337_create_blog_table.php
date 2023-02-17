@@ -19,7 +19,6 @@ class CreateBlogTable extends Migration
             $table->string('slug');
             $table->text('blog');
             $table->string('status');
-            $table->string('popular');
             $table->string('image');
             $table->string('user_id');
             $table->timestamps();

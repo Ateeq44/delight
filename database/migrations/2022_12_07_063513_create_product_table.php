@@ -16,6 +16,7 @@ class CreateProductTable extends Migration
         Schema::create('product', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('cate_id');
+            $table->bigInteger('sub_cate_id');
             $table->string('name');
             $table->string('slug');
             $table->longText('description');
@@ -25,8 +26,6 @@ class CreateProductTable extends Migration
             $table->string('qty');
             $table->string('tax');
             $table->string('status');
-            $table->string('trending');
-
             $table->timestamps();
         });
     }

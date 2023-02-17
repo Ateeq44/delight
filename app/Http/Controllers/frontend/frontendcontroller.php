@@ -19,8 +19,8 @@ class frontendcontroller extends Controller
 {
     public function shop()
     {
-        $all_product = product::with('category')->where('trending', '1')->take(50000)->paginate(8);
-        $all_category = category::where('popular', '1')->take(4000)->get();
+        $all_product = product::with('category')->where('status', '1')->take(50000)->paginate(8);
+        $all_category = category::where('status', '1')->take(4000)->get();
         $cartitem = cart::where('user_id', Auth::id())->get();
         $wishlist = wishlist::where('user_id', Auth::id())->get();
 
@@ -28,12 +28,12 @@ class frontendcontroller extends Controller
     }
     public function index()
     {
-        $blogp = blog::where('popular', '1')->take(6)->get();
+        $blogp = blog::where('status', '1')->take(6)->get();
 
 
-        $feature_product = product::with('category')->where('trending', '1')->orderBy('created_at', 'DESC')->take(10)->get();
-        $all_category = category::where('popular', '1')->get();
-        $trending_category = category::where('popular', '1')->take(4)->orderBy('created_at', 'DESC')->get();
+        $feature_product = product::with('category')->where('status', '1')->orderBy('created_at', 'DESC')->take(10)->get();
+        $all_category = category::where('status', '1')->get();
+        $trending_category = category::where('status', '1')->take(4)->orderBy('created_at', 'DESC')->get();
         $cartitem = cart::where('user_id', Auth::id())->get();
         $wishlist = wishlist::where('user_id', Auth::id())->get();
         return view('frontend.index', compact('feature_product', "trending_category","all_category", "blogp", 'cartitem', 'wishlist'));
@@ -94,7 +94,7 @@ class frontendcontroller extends Controller
 
 
     public function searchshop(Request $request){
-        $all_product = product::with('category')->where('trending', '1')->paginate(8);
+        $all_product = product::with('category')->where('status', '1')->paginate(8);
         $cartitem = cart::where('user_id', Auth::id())->get();
         $wishlist = wishlist::where('user_id', Auth::id())->get();
 

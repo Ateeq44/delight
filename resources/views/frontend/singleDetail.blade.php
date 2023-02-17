@@ -82,12 +82,6 @@
                         @endfor
                         <span> {{$rating->count()}} review</span>
                     </p>
-
-                    @if($product->trending == '1')
-                    <div class="float-left badge mt-2 text-white bg-danger trending_tag" style="font-size: 20px;">
-                        Trending
-                    </div>
-                    @endif
                     <br><br>
                     <div class="product__details__price">Selling Price: ${{$product->selling_price}}</div>
                     <div class="product__details__price">Original Price: <strike>${{$product->original_price}}</strike> </div>

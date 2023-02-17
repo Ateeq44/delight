@@ -36,7 +36,6 @@ class blogcontroller extends Controller
         $blog->blog = $request->input('blog');
         $blog->user_id = $request->input('author');
         $blog->status = $request->input('status') == TRUE ? '1':'0';
-        $blog->popular = $request->input('popular') == TRUE ? '1':'0';
 
         $blog->save();
         return redirect("add-blog")->with('status', "Blog Added Successfully");
@@ -62,11 +61,10 @@ class blogcontroller extends Controller
         }
         // $blog->cate_id = $request->input('category_id');
         $blog->name = $request->input('name');
-        $blog->slug = $request->input('slug');
+        $blog->slug = Str::slug($request->name);
         $blog->blog = $request->input('blog');
         $blog->user_id = $request->input('author');
         $blog->status = $request->input('status') == TRUE ? '1':'0';
-        $blog->popular = $request->input('popular') == TRUE ? '1':'0';
 
         $blog->update();
         return redirect('/view-blog')->with('status', "Blog Added Successfully");
@@ -96,7 +94,6 @@ class blogcontroller extends Controller
         $blog = new blog();
         $blog->name = $request->input('name');
         $blog->status = $request->input('status') == TRUE ? '1':'0';
-        $blog->popular = $request->input('popular') == TRUE ? '1':'0';
 
         $blog->save();
         return redirect("add-vaegory")->with('status', "Blog Added Successfully");

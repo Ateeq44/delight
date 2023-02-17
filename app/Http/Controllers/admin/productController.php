@@ -36,6 +36,7 @@ class productController extends Controller
             }
         }
         $product->cate_id = $request->input('cate_id');
+        $product->sub_cate_id = $request->input('sub_cate_id');
         $product->name = $request->input('name');
         $product->slug = Str::slug($request->name);
         $product->tax = $request->input('tax');
@@ -44,7 +45,6 @@ class productController extends Controller
         $product->original_price = $request->input('original_price');
         $product->selling_price = $request->input('selling_price');
         $product->status = $request->input('status') == TRUE ? '1':'0';
-        $product->trending = $request->input('trending') == TRUE ? '1':'0';
         $product->image = json_encode($files);
         $product->save();
         return redirect("view-product")->with('status', "Product Added Successfully");
@@ -75,14 +75,13 @@ class productController extends Controller
 
         $product->cate_id = $request->input('cate_id');
         $product->name = $request->input('name');
-        $product->slug = $request->input('slug');
+        $product->slug = Str::slug($request->name);
         $product->tax = $request->input('tax');
         $product->qty = $request->input('qty');
         $product->description = $request->input('description');
         $product->original_price = $request->input('original_price');
         $product->selling_price = $request->input('selling_price');
         $product->status = $request->input('status') == TRUE ? '1':'0';
-        $product->trending = $request->input('trending') == TRUE ? '1':'0';
         $product->image = json_encode($files);
         $product->update();
         return redirect('view-product')->with('status', 'Updated Successfully');

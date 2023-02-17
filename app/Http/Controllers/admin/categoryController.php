@@ -32,7 +32,6 @@ class categoryController extends Controller
         $category->name = $request->input('name');
         $category->slug = Str::slug($request->name);
         $category->status = $request->input('status') == TRUE ? '1':'0';
-        $category->popular = $request->input('popular') == TRUE ? '1':'0';
 
         $category->save();
         return redirect("View-category")->with('status', "Category Added Successfully");
@@ -74,9 +73,8 @@ class categoryController extends Controller
         }
 
         $category->name = $request->input('name');
-        $category->slug = $request->input('slug');
+        $category->slug = Str::slug($request->name);
         $category->status = $request->input('status') == TRUE ? '1':'0';
-        $category->popular = $request->input('popular') == TRUE ? '1':'0';
         $category->update();
         return redirect('View-category')->with('status', 'Updated Successfully');
     }

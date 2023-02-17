@@ -18,7 +18,6 @@ class CreateBlogcategoriesTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('status');
-            $table->string('popular');
             $table->timestamps();
         });
     }

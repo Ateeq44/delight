@@ -19,7 +19,6 @@ class CreateSubCategoriesTable extends Migration
             $table->string('subcategory');
             $table->string('slug');
             $table->tinyInteger('status')->default('0');
-            $table->tinyInteger('popular')->default('0');
             $table->timestamps();
         });
     }
