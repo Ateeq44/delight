@@ -48,9 +48,7 @@
                         <td>{{$i++}}</td>
                         <td><img  style="width: 100px;"  src="{{ asset('/upload/product').'/'.$images[0]}}"></td>
                         <td>{{$item->cate_id}}</td>
-                        
-                        <td>{{$item->subcategory->sub_cate_id}}</td>
-
+                        <td>{{$item->subcategory->subcategory}}</td>
                         <td>{{$item->name}}</td>
                         <td>${{$item->selling_price}}</td>
                         <td>${{$item->original_price}}</td>
@@ -60,7 +58,7 @@
                         <td>{{$item->status}}</td>
 
                         <td>
-
+                            <a href="{{url('product-view/'.$item->id)}}" class="btn btn-primary d-flex py-2 fa-2x px-5 align-items-center justify-content-center">View</a>
                             <a href="{{url('product-delete/'.$item->id)}}" class="btn btn-danger d-flex py-2 fa-2x  px-5 align-items-center justify-content-center">Delete</a>
                             <a href="{{url('product-edit/'.$item->id)}}" class="btn btn-primary d-flex py-2 fa-2x px-5 align-items-center justify-content-center">Edit</a>
 

@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-// Route::view('stripe', 'stripe');
+// Route::view('test', 'test');
 Route::get('search', [App\Http\Controllers\frontend\frontendcontroller::class, 'searchshop']);
 // Route::get('mail', [App\Http\Controllers\frontend\mailcontroller::class, 'sendmail']);
 Route::get('/', [App\Http\Controllers\frontend\frontendcontroller::class, 'index']);

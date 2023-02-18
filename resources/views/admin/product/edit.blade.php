@@ -52,10 +52,15 @@
                     <label for="name">Quantity</label>
                     <input type="number" class="form-control" value="{{$product->qty}}" name="qty">
                 </div>
-
-                <div class="col-ms-3">
-                    <img class="w-25"  src="{{ asset('/upload/product').'/'.$product->image}}">
+                @php
+                $images = json_decode($product->image);
+                @endphp
+                <div class="col-md-12 my-5">
+                    <img style="width: 100px;" src="{{asset('upload/product/'.$images[0])}}" alt="">
+                    <img style="width: 100px;" src="{{asset('upload/product/'.$images[1])}}" alt="">
+                    <img style="width: 100px;" src="{{asset('upload/product/'.$images[2])}}" alt="">
                 </div>
+
                 <div class="col-md-6 mb-3">
                     <input type="file" multiple="multiple" name="image[]" class="form-control" >
                 </div>
