@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\category;
+use App\Models\Subcategory;
 use App\Models\product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -19,7 +20,8 @@ class productController extends Controller
     public function product()
     {
         $category = category::all();
-        return view('admin.product.add', compact('category'));
+        $subcategory = SubCategory::all();
+        return view('admin.product.add', compact('category', 'subcategory'));
     }
     public function insert(Request $request)
     {
@@ -53,8 +55,10 @@ class productController extends Controller
     public function edit(Request $request, $id)
     {
         $category = category::all();
+        $subcategory = SubCategory::all();
+
         $product = product::find($id);
-        return view('admin.product/edit', compact('product', 'category'));
+        return view('admin.product/edit', compact('product', 'category', 'subcategory'));
     }
 
     public function update(Request $request, $id)
@@ -74,6 +78,7 @@ class productController extends Controller
         }
 
         $product->cate_id = $request->input('cate_id');
+        $product->sub_cate_id = $request->input('sub_cate_id');
         $product->name = $request->input('name');
         $product->slug = Str::slug($request->name);
         $product->tax = $request->input('tax');

@@ -27,6 +27,7 @@
                         <th>Sr#</th>
                         <th>Image</th>
                         <th>Category</th>
+                        <th>Subcategory</th>
                         <th>Product Title</th>
                         <th>Selling Price</th>
                         <th>Original Price</th>
@@ -38,15 +39,18 @@
                     </tr>
                 </thead>
                 <tbody>
-
                     @foreach ($product as $item)
+                    
                     @php
                     $images = json_decode($item->image);
                     @endphp
                     <tr>
                         <td>{{$i++}}</td>
                         <td><img  style="width: 100px;"  src="{{ asset('/upload/product').'/'.$images[0]}}"></td>
-                        <td>{{$item->category->name}}</td>
+                        <td>{{$item->cate_id}}</td>
+                        
+                        <td>{{$item->subcategory->sub_cate_id}}</td>
+
                         <td>{{$item->name}}</td>
                         <td>${{$item->selling_price}}</td>
                         <td>${{$item->original_price}}</td>

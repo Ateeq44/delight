@@ -15,7 +15,7 @@
                 @csrf
                 <div class="row">
                     <div class="col-md-6 mb-3 px-3">
-                        <select class="custom-select form-control" name="cate_id"  id="inputGroupSelect01">
+                        <select class="custom-select form-control" name="sub_cate_id"  id="inputGroupSelect01">
                             <option selected>Select Category</option>
                             @foreach ($category as $item)
                             <option  value="{{$item->id}}">{{$item->name}}</option>
@@ -25,8 +25,8 @@
                     <div class="col-md-6 mb-3 px-3">
                         <select class="custom-select form-control" name="cate_id"  id="inputGroupSelect01">
                             <option selected>Select SubCategory</option>
-                            @foreach ($category as $item)
-                            <option  value="{{$item->id}}">{{$item->name}}</option>
+                            @foreach ($subcategory as $item)
+                            <option  value="{{$item->id}}">{{$item->subcategory}}</option>
                             @endforeach
                         </select>
                     </div>
