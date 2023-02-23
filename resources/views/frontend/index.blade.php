@@ -62,6 +62,7 @@ Welcome To Delight
                 @php
                 $images = json_decode($item->image);
                 @endphp
+                
                 <a href="{{url('view-category/'.$item->category->slug.'/'.$item->slug)}}">
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="{{asset('upload/product/'.$images[0])}}">

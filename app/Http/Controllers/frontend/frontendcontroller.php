@@ -19,8 +19,8 @@ class frontendcontroller extends Controller
 {
     public function shop()
     {
-        $all_product = product::with('category')->where('status', '1')->take(50000)->paginate(8);
-        $all_category = category::where('status', '1')->take(4000)->get();
+        $all_product = product::with('category')->where('status', '1')->paginate(8);
+        $all_category = category::where('status', '1')->get();
         $cartitem = cart::where('user_id', Auth::id())->get();
         $wishlist = wishlist::where('user_id', Auth::id())->get();
 
@@ -36,6 +36,7 @@ class frontendcontroller extends Controller
         $trending_category = category::where('status', '1')->take(4)->orderBy('created_at', 'DESC')->get();
         $cartitem = cart::where('user_id', Auth::id())->get();
         $wishlist = wishlist::where('user_id', Auth::id())->get();
+        //dd($all_category);
         return view('frontend.index', compact('feature_product', "trending_category","all_category", "blogp", 'cartitem', 'wishlist'));
     }
 
@@ -64,9 +65,8 @@ class frontendcontroller extends Controller
         if (category::where('slug', $cate_slug)->exists()) {
             if (product::where('slug', $pro_slug)->exists()) {
 
-
                 $product = product::where('slug', $pro_slug)->first();
-                // dd($product);
+                
                 $data = [];
                 $data['review'] = rating::where('prod_id',$product->id)->get();
                 $verified_purchase = order::where('order.user_id', Auth::id())

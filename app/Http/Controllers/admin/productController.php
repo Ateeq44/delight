@@ -27,7 +27,6 @@ class productController extends Controller
     {
         $product = new product();
         $files = [];
-        // dd($request->hasfile('image'));
         if($request->hasfile('image'))
         {
             foreach($request->file('image') as $file)
@@ -66,7 +65,7 @@ class productController extends Controller
 
         $product = product::find($id);
         $files = [];
-        // dd($request->hasfile('image'));
+        
         if($request->hasfile('image'))
         {
             foreach($request->file('image') as $file)
