@@ -74,6 +74,7 @@ class checkoutController extends Controller
         $order->address = $request->input('address');
         $order->city = $request->input('city');
         $order->state = $request->input('state');
+        $order->payment_method = $request->input('payment_method');
         $order->country = $request->input('country');
         $order->payment_id = $request->stripeToken;
         $order->zipcode = $request->input('zipcode');
