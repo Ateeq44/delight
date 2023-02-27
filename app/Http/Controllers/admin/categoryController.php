@@ -31,8 +31,9 @@ class categoryController extends Controller
         }
         $category->name = $request->input('name');
         $category->slug = Str::slug($request->name);
+        $category->image = $request->input('image');
         $category->status = $request->input('status') == TRUE ? '1':'0';
-
+        dd($request->input('image'));
         $category->save();
         return redirect("View-category")->with('status', "Category Added Successfully");
 

@@ -31,26 +31,7 @@ Welcome To Delight
         </div>
     </div>
 </section>
-<section class="categories" >
-    <div class="container">
-        <div class="section-title">
-            <h2 class="text-center" style="font-size: 40px;">Recent Category</h2>
-        </div>
-        <div class="row">
-            <div class="categories__slider owl-carousel">
-                @foreach ($trending_category as $item)
-                <a href="{{url('view-category/'.$item->slug)}}">
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="{{asset('upload/category/'.$item->image)}}">
-                        </div>
-                        <p>{{$item->name}}</p>
-                    </div>
-                </a>
-                @endforeach
-            </div>
-        </div>
-    </div>
-</section>
+
 <section class="categories" >
     <div class="container">
         <div class="section-title">

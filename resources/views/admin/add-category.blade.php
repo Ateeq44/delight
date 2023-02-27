@@ -13,9 +13,15 @@
                         <label for="name">Name</label>
                         <input type="text" class="form-control" name="name">
                     </div>
+                    
                     <div class="col-md-6 mb-3">
                         <label for="name">Status</label>
                         <input type="checkbox" class="ml-3"  name="status">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="image">Image</label>
+                        <input type="file" required name="image" class="form-control">
                     </div>
                     
                     <div class="col-md-12 mb-3">
