@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
 
     <link href="{{asset('admin/css/material-dashboard.css')}}" rel="stylesheet" />
 
@@ -29,19 +30,20 @@
             </div>
         </div>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Scripts -->
     <script src="{{ asset('admin/js/script.js') }}" defer></script>
     <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" defer></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
 
+    
 
-
-     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        @if (session('status'))
-        <script>
-            swal("{{session('status')}}");
-        </script>
-        @endif
-        @yield('script')
-    </body>
-    </html>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @if (session('status'))
+    <script>
+        swal("{{session('status')}}");
+    </script>
+    @endif
+    @yield('script')
+</body>
+</html>

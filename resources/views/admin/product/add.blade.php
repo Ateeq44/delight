@@ -16,15 +16,13 @@
                 <div class="row">
                     <div class="col-md-6 mb-3 px-3">
                         <select class="custom-select form-control" name="sub_cate_id"  id="inputGroupSelect01">
-                            <option selected>Select Category</option>
                             @foreach ($category as $item)
                             <option  value="{{$item->id}}">{{$item->name}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="col-md-6 mb-3 px-3">
-                        <select class="custom-select form-control" name="cate_id"  id="inputGroupSelect01">
-                            <option selected>Select SubCategory</option>
+                        <select class="custom-select form-control" name="cate_id">
                             @foreach ($subcategory as $item)
                             <option  value="{{$item->id}}">{{$item->subcategory}}</option>
                             @endforeach
@@ -37,12 +35,27 @@
                     <div class="col-md-12 mb-3">
                         <label for="name">Description</label>
                         <textarea rows="5" class=" form-control"  name="description"></textarea>
+                    </div>
 
+                    <div class="col-md-6 mb-3">
+                        <label for="name">Size</label>
+                        <select class="custom-select form-control js-example-basic-single" multiple="multiple" name="size[]">
+                            @foreach ($details as $item)
+                            <option  value="{{$item->size}}">{{$item->size}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="name">Color</label>
+                        <select class="custom-select form-control js-example-basic-single" multiple="multiple" name="color[]">
+                            @foreach ($details as $item)
+                            <option  value="{{$item->color}}">{{$item->color}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="name">Original Price</label>
                         <input type="number" class=" form-control"  name="original_price">
-
                     </div>
                     <div class="col-md-6 mb-3 ">
                         <label for="name">Selleing Price</label>
@@ -81,5 +94,9 @@
 <script src="https://cdn.ckeditor.com/4.20.1/standard/ckeditor.js"></script>
 <script>
     CKEDITOR.replace( 'description' );
+
+    $(document).ready(function() {
+        $(".js-example-basic-single").select2();
+    });
 </script>
 @endsection

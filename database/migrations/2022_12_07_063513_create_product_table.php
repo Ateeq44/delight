@@ -24,6 +24,8 @@ class CreateProductTable extends Migration
             $table->string('selling_price');
             $table->string('image');
             $table->string('qty');
+            $table->string('size');
+            $table->string('color');
             $table->string('tax');
             $table->string('status');
             $table->timestamps();

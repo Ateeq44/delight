@@ -82,6 +82,24 @@
         </li>
 
         <li>
+            <a href="{{url('detail')}}">
+                <span class="icon title">
+                    <i class="fa-solid fa-circle-plus fa-1x"></i>
+                </span>
+                <span class="title">Add Details</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{{url('view-detail')}}">
+                <span class="icon title">
+                    <i class="fa-solid fa-eye fa-1x"></i>
+                </span>
+                <span class="title">View Details</span>
+            </a>
+        </li>
+
+        <li>
             <a href="{{url('orders')}}">
                 <span class="icon title">
                     <i class="fa-solid fa-sack-dollar fa-1x"></i>

@@ -22,6 +22,8 @@ class product extends Model
         'selling_price',
         'qty',
         'tax',
+        'size',
+        'color',
         'status',
     ];
 

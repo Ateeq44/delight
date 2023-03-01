@@ -1,33 +1,38 @@
+
+
 <style>
-    /* rating */
-    .rating-css div {
-        color: #ffe400;
-        font-size: 30px;
-        font-family: sans-serif;
-        font-weight: 800;
-        text-align: center;
-        text-transform: uppercase;
-        padding: 20px 0;
-    }
-    .rating-css input {
-        display: none;
-    }
-    .rating-css input + label {
-        font-size: 60px;
-        text-shadow: 1px 1px 0 #8f8420;
-        cursor: pointer;
-    }
-    .rating-css input:checked + label ~ label {
-        color: #b4afaf;
-    }
-    .rating-css label:active {
-        transform: scale(0.8);
-        transition: 0.3s ease;
-    }
-    .checked{
-        color: #ffe400;
-    }
-    /* End of Star Rating */
+    .radio-item input[type='radio'] {
+      margin-left: 20px
+  }
+  /* rating */
+  .rating-css div {
+    color: #ffe400;
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px 0;
+}
+.rating-css input {
+    display: none;
+}
+.rating-css input + label {
+    font-size: 60px;
+    text-shadow: 1px 1px 0 #8f8420;
+    cursor: pointer;
+}
+.rating-css input:checked + label ~ label {
+    color: #b4afaf;
+}
+.rating-css label:active {
+    transform: scale(0.8);
+    transition: 0.3s ease;
+}
+.checked{
+    color: #ffe400;
+}
+/* End of Star Rating */
 </style>
 @extends('layouts.front')
 
@@ -82,12 +87,24 @@
                         @endfor
                         <span> {{$rating->count()}} review</span>
                     </p>
-                    <br><br>
+                    
                     <div class="product__details__price">Selling Price: ${{$product->selling_price}}</div>
-                    <div class="product__details__price">Original Price: <strike>${{$product->original_price}}</strike> </div>
-                    {{-- <p>
-                        {{$product->description}}
-                    </p> --}}
+                    @php
+                    $colors = explode(",", $product->color);
+                    $sizes = explode(",", $product->size);
+                    @endphp
+                    
+                    <div class="my-4 radio-item">
+                        @foreach($colors as $item)
+                        <input type="radio" class="color"  name="color" value="{{ $item }}"> {{ $item }}
+                        @endforeach
+                    </div>
+                    <div class="mb-4 radio-item">
+                        @foreach($sizes as $item)
+                        <input type="radio" class="size"  name="size" value="{{ $item }}"> {{ $item }}
+                        @endforeach
+                    </div>
+
                     <div class="product__details__quantity">
                         <input type="hidden" value="{{$product->id}}" class="prod_id">
 
@@ -99,7 +116,7 @@
                             </div>
                         </div>
                         @if ($product->qty > 0)
-                        <a href="#" class="primary-btn addTocartBtn" onClick="window.location.href=window.location.href">ADD TO CARD</a>
+                        <a href="#" class="primary-btn addTocartBtn">ADD TO CARD</a>
                         @endif
                         <a href="#" class="pri-btn addToWishlist">
                             <i class="fa-solid fa-heart"></i>
@@ -146,6 +163,7 @@
         </div>
     </div>
 </section>
+
 <div class="container my-5">
     <div class="col-lg-12">
         <div class="product__details__tab">
@@ -344,6 +362,8 @@
             e.preventDefault();
             var product_id = $(this).closest('.prod_data').find('.prod_id').val();
             var product_qty = $(this).closest('.prod_data').find('.qty-input').val();
+            var color = $(this).closest('.prod_data').find('.color:checked').val();
+            var size = $(this).closest('.prod_data').find('.size:checked').val();
             alert
             $.ajaxSetup({
                 headers: {
@@ -356,6 +376,8 @@
                 data: {
                     'product_id' : product_id,
                     'product_qty' : product_qty,
+                    'color' : color,
+                    'size' : size,
                 },
                 success: function (response){
                     swal(response.status);

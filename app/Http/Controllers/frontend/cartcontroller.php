@@ -17,6 +17,8 @@ class cartcontroller extends Controller
 
         $product_id = $request->input('product_id');
         $product_qty = $request->input('product_qty');
+        $color = $request->input('color');
+        $size = $request->input('size');
 
         $prod_check = product::where('id', $product_id)->first();
         if ($prod_check) {
@@ -31,6 +33,8 @@ class cartcontroller extends Controller
                 $cartItem->prod_id = $product_id;
                 $cartItem->user_id = Auth::id();
                 $cartItem->prod_qty = $product_qty;
+                $cartItem->color = $color;
+                $cartItem->size = $size;
                 $cartItem->save();
                 $destroy = wishlist::where('prod_id', $product_id)->first();
                 $destroy->delete();

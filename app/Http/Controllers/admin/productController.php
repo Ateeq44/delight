@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\category;
 use App\Models\Subcategory;
 use App\Models\product;
+use App\Models\details;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -21,7 +22,8 @@ class productController extends Controller
     {
         $category = category::all();
         $subcategory = SubCategory::all();
-        return view('admin.product.add', compact('category', 'subcategory'));
+        $details = details::all();
+        return view('admin.product.add', compact('category', 'subcategory', 'details'));
     }
     public function insert(Request $request)
     {
@@ -42,6 +44,8 @@ class productController extends Controller
         $product->slug = Str::slug($request->name);
         $product->tax = $request->input('tax');
         $product->qty = $request->input('qty');
+        $product->size =implode(',', $request->input('size')) ;
+        $product->color =implode(',', $request->input('color')) ;
         $product->description = $request->input('description');
         $product->original_price = $request->input('original_price');
         $product->selling_price = $request->input('selling_price');

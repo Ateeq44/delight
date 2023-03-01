@@ -120,4 +120,10 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('user-view/{id}', [App\Http\Controllers\admin\admincontroller::class, 'view']);
     Route::post('userupdate/{id}', [App\Http\Controllers\admin\admincontroller::class, 'update']);
 
+    Route::get('detail', [App\Http\Controllers\admin\admincontroller::class, 'detail']);
+    Route::post('submit-detail', [App\Http\Controllers\admin\admincontroller::class, 'submit_detail']);
+    Route::get('view-detail', [App\Http\Controllers\admin\admincontroller::class, 'view_detail']);
+    Route::get('details-delete/{id}', [App\Http\Controllers\admin\admincontroller::class, 'details_destroy']);
+    Route::get('view-detail', [App\Http\Controllers\admin\admincontroller::class, 'view_detail']);
+
 });

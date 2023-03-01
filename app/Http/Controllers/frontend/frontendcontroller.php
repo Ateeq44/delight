@@ -66,7 +66,6 @@ class frontendcontroller extends Controller
             if (product::where('slug', $pro_slug)->exists()) {
 
                 $product = product::where('slug', $pro_slug)->first();
-                
                 $data = [];
                 $data['review'] = rating::where('prod_id',$product->id)->get();
                 $verified_purchase = order::where('order.user_id', Auth::id())
