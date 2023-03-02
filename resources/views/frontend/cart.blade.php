@@ -31,6 +31,8 @@ Cart
                             <tr>
                                 <th class="shoping__product">Products</th>
                                 <th>Price</th>
+                                <th>Color</th>
+                                <th>Size</th>
                                 <th>Quantity</th>
                                 <th>Total</th>
                                 <th></th>
@@ -49,6 +51,12 @@ Cart
                                 </td>
                                 <td class="shoping__cart__price">
                                     ${{$item->cartproducts->selling_price}}
+                                </td>
+                                <td class="shoping__cart__price">
+                                    {{$item->color}}
+                                </td>
+                                <td class="shoping__cart__price">
+                                    {{$item->size}}
                                 </td>
                                 <td class="shoping__cart__quantity">
                                     <div class="quantity">
