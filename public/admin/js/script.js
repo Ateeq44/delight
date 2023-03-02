@@ -156,3 +156,9 @@ $(document).ready(function() {
     event.preventDefault();
   });
 })(jQuery); // End of use strict
+
+
+
+function showModal() {
+  $('#myModal').modal('show');
+}
