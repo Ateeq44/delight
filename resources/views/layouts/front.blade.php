@@ -20,13 +20,20 @@
     <!-- Styles -->
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> --}}
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" /> --}}
-    <link href="{{asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet" />
-    <link href="{{asset('frontend/css/font-awesome.min.css')}}" rel="stylesheet" />
-    <link href="{{asset('frontend/css/elegant-icons.css')}}" rel="stylesheet" />
-    <link href="{{asset('frontend/css/nice-select.css')}}" rel="stylesheet" />
-    <link href="{{asset('frontend/css/jquery-ui.min.css')}}" rel="stylesheet" />
-    <link href="{{asset('frontend/css/owl.carousel.min.css')}}" rel="stylesheet" />
-    <link href="{{asset('frontend/css/slicknav.min.css')}}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">  
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="" rel="stylesheet">
+    <link href="" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="{{asset('frontend/lib/animate/animate.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('frontend/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet" />
     <link href="{{asset('frontend/css/style.css')}}" rel="stylesheet" />
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
@@ -53,16 +60,11 @@
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script src="{{ asset('frontend/js/jquery-3.3.1.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <script src="{{ asset('frontend/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{ asset('frontend/js/bootstrap.min.js')}}"></script>
-    <script src="{{ asset('frontend/js/jquery.nice-select.min.js') }}"></script>
-    <script src="{{ asset('frontend/js/jquery-ui.min.js') }}"></script>
-    <script src="{{ asset('frontend/js/jquery.slicknav.js')}}"></script>
-    <script src="{{ asset('frontend/js/mixitup.min.js') }}"></script>
-    <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('lib/easing/easing.min.js') }}"></script>
+    <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('frontend/js/main.js') }}"></script>
-    <script src="{{ asset('frontend/js/popper.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js" integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

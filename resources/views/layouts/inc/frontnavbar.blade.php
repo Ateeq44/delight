@@ -1,232 +1,98 @@
-<style>
-
-  .btn .bx {
-    vertical-align: inherit;
-    margin-top: -3px;
-    font-size: 1.15rem;
-  }
-
-  .form-control {
-    height: calc(2.5rem + 2px);
-    padding: 0.5rem 1.5rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: 0.3rem;
-  }
-
-  .btn1 {
-    font-size: 1rem;
-    padding: 6px 12px;;
-    font-size: 1rem;
-    color: white !important;
-    line-height: 1.5;
-    border-radius: 0.25rem;
-  }
-
-  .bx.icon-single {
-    font-size: 1.5rem;
-  }
-
-  .form-inline .form-control {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  .form-inline .btn {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-}
-
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-  .form-inline .form-control {
-    width: 210px;
-  }
-}
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-  .form-inline .form-control {
-    width: 440px;
-  }
-}
-
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-  .form-inline .form-control {
-    width: 600px;
-  }
-}
-
-.sub-menu.navbar-light .navbar-nav .active > .nav-link,
-.sub-menu.navbar-light .navbar-nav .nav-link.active,
-.sub-menu.navbar-light .navbar-nav .nav-link.show,
-.sub-menu.navbar-light .navbar-nav .show > .nav-link {
-  border-bottom: 3px solid #28a745;
-  color: #28a745;
-}
-
-.navbar .navbar-toggler {
-  border: none;
-}
-
-.navbar-light .navbar-toggler:focus {
-  outline: none;
-}
-
-.navbar {
-  padding: 1rem;
-}
-
-.main-menu {
-  position: relative;
-/*  z-index: 1;*/
-}
-
-.sub-menu {
-  position: relative;
-/*  z-index: 1;*/
-padding: 0 1rem;
-}
-
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-  .sub-menu {
-    padding: 0 1rem;
-  }
-
-  .sub-menu.navbar-expand-md .navbar-nav .nav-link {
-    padding: 1rem 1.5rem;
-  }
-}
-
-.navbar.bg-light {
-  background: #fff !important;
-}
-
-
-section {
-/*  padding: 6rem;*/
-/*  background: #e4e4e4;*/
-/*  margin-bottom: 30px;*/
-position: relative;
-/*z-index: 1;*/
-}
-.utility-nav {
-/*  background: #e4e4e4;*/
-padding: 0.5rem 1rem;
-}
-
-.utility-nav p {
-  margin-bottom: 0;
-}
-
-.search-bar {
-  position: relative;
-/*  z-index: 1;*/
-box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.1);
-}
-
-.search-bar .form-control {
-  width: calc(100% - 45px);
-}
-
-.avatar {
-  border-radius: 50%;
-  width: 4.5rem;
-  height: 4.5rem;
-  margin-right: 8px;
-}
-
-.avatar.avatar-xs {
-  width: 2.25rem;
-  height: 2.25rem;
-}
-
-.user-dropdown .dropdown-menu {
-  left: auto;
-  right: 0;
-}
-.nav-main{
-  box-shadow: 0px 2px 15px 0px rgb(0 0 0 / 10%);
-}
-</style>
-
-
-
-<div class="nav-main">
-  <nav class="navbar navbar-expand-md navbar-light bg-light main-menu" style="box-shadow:none">
-    <div class="container">
-
-      <button type="button" id="sidebarCollapse" class="btn btn-link d-block d-md-none">
-        <i class="bx bx-menu icon-single"></i>
-      </button>
-
-      <a class="navbar-brand" href="#">
-        <h4 class="font-weight-bold text-success" style="font-size:40px;">Delight</h4>
+<div class="container-fluid">
+  <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
+    <div class="col-lg-4">
+      <a href="" class="text-decoration-none">
+        <span class="h1 text-uppercase text-primary bg-dark px-2">Multi</span>
+        <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Shop</span>
       </a>
-
-      <ul class="navbar-nav ml-auto d-block d-md-none">
-        <li class="nav-item">
-          <a class="btn btn-link" href="#"><i class="bx bxs-cart icon-single"></i> <span class="badge badge-danger">3</span></a>
-        </li>
-      </ul>
-
-      <div class="collapse navbar-collapse">
-        <form action="{{url('/search')}}" method="GET" class="form-inline my-2 my-lg-0 mx-auto">
-          <input class="form-control" name="search_product" type="search" placeholder="Search for products..." aria-label="Search">
-          <button type="submit" class="btn btn-success btn1">SEARCH</button>
-        </form>
-  <!-- <form action="{{url('/search')}}" method="GET">
-    <div class="hero__search__categories">
-      All Categories
     </div>
-    <input type="text" name="search_product" placeholder="What do yo u need?">
-    <button type="submit" class="site-btn">SEARCH</button>
-  </form> -->
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="btn btn-link" href="{{url('cart')}}"><i class="fa-sharp fa-solid fa-cart-shopping text-success fa-2x"></i> <span class="badge badge-danger">{{$cartitem->count()}}</span></a>
-    </li>
-    <li class="nav-item">
-      <a class="btn btn-link" href="{{url('wishlist')}}"><i class="fa fa-heart text-success fa-2x"></i> <span class="badge badge-danger">{{$wishlist->count()}}</span></a>
-    </li>
-
-    <li class="nav-item dropdown ml-md-3">
-      @guest
-      @if (Route::has('login'))
-      <a class="btn btn-primary mt-2" href="{{ route('login') }}"><i class="fa fa-user"></i> Log In</a>
-      @endif
-      @else
-      <a class="btn btn-link text-success" href="{{url('My-Profile')}}" role="button" ><i class="fa-solid fa-user"></i> {{ Auth::user()->name}}</a>
-      
-      @endguest
-
-    </li>
-  </ul>
-</div>
-</div>
-</nav>
-
-<nav class="navbar navbar-expand-md navbar-light bg-light sub-menu">
-  <div class="container">
-    <div class="collapse navbar-collapse" id="navbar">
-      <ul class="navbar-nav mx-auto">
-
-        <li class="nav-item active"><a  class="nav-link" href="{{url('/')}}">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{url('shop')}}">Shop</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{url('blog')}}">Blog</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{url('contact')}}">Contact</a></li>
-        {{-- <li class="nav-item"><a class="nav-link" href="{{url('my_order')}}">My Order</a></li> --}}
-        @if(@Auth::user()->role_as==1)
-        <li class="nav-item"><a class="nav-link" href="{{url('Dashboard')}}">Dashboard</a></li>
+    <div class="col-lg-4 col-4 text-left">
+      <form action="{{url('/search')}}" method="GET">
+        <div class="input-group">
+          <input type="text" class="form-control" name="search_product" placeholder="Search for products">
+          <div class="input-group-append">
+            <span class="input-group-text bg-transparent text-primary">
+              <i class="fa fa-search"></i>
+            </span>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-lg-4 col-4 text-right">
+      <li class="nav-item dropdown ml-md-3 list-unstyled">
+        @guest
+        @if (Route::has('login'))
+        <a class="btn btn-primary mt-2" href="{{ route('login') }}"><i class="fa fa-user"></i> My Profile</a>
         @endif
-      </ul>
+        @else
+        <a class="btn btn-link" href="{{url('My-Profile')}}" role="button" ><i class="fa-solid fa-user"></i> {{ Auth::user()->name}}</a>
+
+        @endguest
+
+      </li>
+      {{-- <div class="btn-group">
+        <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">My Profile</button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <button class="dropdown-item" type="button">Sign in</button>
+          <button class="dropdown-item" type="button">Sign up</button>
+        </div>
+      </div> --}}
     </div>
   </div>
-</nav>
+</div>
+<div class="container-fluid bg-dark mb-30">
+  <div class="row px-xl-5">
+    <div class="col-lg-3 d-none d-lg-block">
+      <a class="btn d-flex align-items-center justify-content-between bg-primary w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; padding: 0 30px;">
+        <h6 class="text-dark m-0"><i class="fa fa-bars mr-2"></i>Categories</h6>
+        <i class="fa fa-angle-down text-dark"></i>
+      </a>
+      <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
+        <div class="navbar-nav w-100">
+          @foreach ($all_category as $item)
+          <div class="nav-item dropdown dropright">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{{url('view-category/'.$item->slug)}}" class="nav-item nav-link">{{$item->name}} <i class="fa fa-angle-right float-right mt-1"></i></a>
+            <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
+              <a href="" class="dropdown-item">Men's Dresses</a>
+              <a href="" class="dropdown-item">Women's Dresses</a>
+              <a href="" class="dropdown-item">Baby's Dresses</a>
+            </div>
+          </div>
+          @endforeach
+        </div>
+      </nav>
+    </div>
+    <div class="col-lg-9">
+      <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0">
+        <a href="" class="text-decoration-none d-block d-lg-none">
+          <span class="h1 text-uppercase text-dark bg-light px-2">Multi</span>
+          <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1">Shop</span>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+          <div class="navbar-nav mr-auto py-0">
+            <a href="{{ url('/') }}" class="nav-item nav-link active">Home</a>
+            <a href="{{ url('shop') }}" class="nav-item nav-link">Shop</a>
+            <a href="{{url('blog')}}" class="nav-item nav-link">Blog</a>
+            <a href="{{ url('contact') }}" class="nav-item nav-link">Contact</a>
+            @if(@Auth::user()->role_as==1)
+            <a href="{{ url('Dashboard') }}" class="nav-item nav-link">Dashboard</a>
+            @endif
+          </div>
+          <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
+            <a href="{{url('wishlist')}}" class="btn px-0">
+              <i class="fas fa-heart text-primary"></i>
+              <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;"></span>
+            </a>
+            <a href="{{url('cart')}}" class="btn px-0 ml-3">
+              <i class="fas fa-shopping-cart text-primary"></i>
+              <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;"></span>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
 </div>

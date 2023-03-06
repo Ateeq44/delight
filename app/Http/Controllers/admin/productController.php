@@ -79,7 +79,6 @@ class productController extends Controller
                 $files[] = $name;
             }
         }
-
         $product->cate_id = $request->input('cate_id');
         $product->sub_cate_id = $request->input('sub_cate_id');
         $product->name = $request->input('name');
