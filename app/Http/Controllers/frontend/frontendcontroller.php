@@ -33,7 +33,7 @@ class frontendcontroller extends Controller
 
         $feature_product = product::with('category')->where('status', '1')->orderBy('created_at', 'DESC')->take(10)->get();
         $all_category = category::where('status', '1')->get();
-        $trending_category = category::where('status', '1')->take(4)->orderBy('created_at', 'DESC')->get();
+        $trending_category = category::where('status', '1')->take(8)->orderBy('created_at', 'DESC')->get();
         $cartitem = cart::where('user_id', Auth::id())->get();
         $wishlist = wishlist::where('user_id', Auth::id())->get();
         //dd($all_category);
