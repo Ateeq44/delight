@@ -5,6 +5,9 @@ Blog
 @endsection
 
 @section('content')
+@php
+all_category();
+@endphp
 <div class="container">
     <div class="row">
         <div class="col-md-12">

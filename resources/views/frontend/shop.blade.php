@@ -6,141 +6,279 @@ Shop
 
 @section('content')
 
-<section class="product spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 mt-3 col-md-5">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <span>All departments</span>
-                        <i class="fa fa-bars float-right mt-2 text-white"></i>
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30">
+                <a class="breadcrumb-item text-dark" href="#">Home</a>
+                <a class="breadcrumb-item text-dark" href="#">Shop</a>
+                <span class="breadcrumb-item active">Shop List</span>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
 
+
+<!-- Shop Start -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <!-- Shop Sidebar Start -->
+        <div class="col-lg-3 col-md-4">
+            <!-- Price Start -->
+            <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Filter by price</span></h5>
+            <div class="bg-light p-4 mb-30">
+                <form>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input" checked id="price-all">
+                        <label class="custom-control-label" for="price-all">All Price</label>
+                        <span class="badge border font-weight-normal">1000</span>
                     </div>
-                    <ul style="">
-                        @foreach ($all_category as $item)
-                        <li><a href="{{url('view-category/'.$item->slug)}}">{{$item->name}}</a></li>
-                        @endforeach
-
-                    </ul>
-                </div>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input" id="price-1">
+                        <label class="custom-control-label" for="price-1">$0 - $100</label>
+                        <span class="badge border font-weight-normal">150</span>
+                    </div>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input" id="price-2">
+                        <label class="custom-control-label" for="price-2">$100 - $200</label>
+                        <span class="badge border font-weight-normal">295</span>
+                    </div>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input" id="price-3">
+                        <label class="custom-control-label" for="price-3">$200 - $300</label>
+                        <span class="badge border font-weight-normal">246</span>
+                    </div>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input" id="price-4">
+                        <label class="custom-control-label" for="price-4">$300 - $400</label>
+                        <span class="badge border font-weight-normal">145</span>
+                    </div>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
+                        <input type="checkbox" class="custom-control-input" id="price-5">
+                        <label class="custom-control-label" for="price-5">$400 - $500</label>
+                        <span class="badge border font-weight-normal">168</span>
+                    </div>
+                </form>
             </div>
-            <div class="col-lg-9 col-md-7">
-                <div class="product__discount">
-                    <div class="filter__item">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-5">
+            <!-- Price End -->
 
-                            </div>
-                            <div class="col-lg-4 col-md-4">
-                                <div class="filter__found">
-                                   <h6><span class="" style="font-size: 20px;">{{$all_product->count()}}</span> Products found</h6>                                 </div>
-                            </div>
-
-                        </div>
+            <!-- Color Start -->
+            <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Filter by color</span></h5>
+            <div class="bg-light p-4 mb-30">
+                <form>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input" checked id="color-all">
+                        <label class="custom-control-label" for="price-all">All Color</label>
+                        <span class="badge border font-weight-normal">1000</span>
                     </div>
-                    <div class="row">
-                        @foreach ($all_product as $item)
-                        <div class="col-md-4 mb-3">
-                            <a class="text-dark" href="{{url('view-category/'.$item->category->slug.'/'.$item->slug)}}">
-                                <div class="card">
-                                    @php
-                                    $images = json_decode($item->image);
-                                    @endphp
-                                    <img class="w-100" src="{{asset('upload/product/'.$images[0])}}" alt="Product Image">
-                                    <div class="card-body">
-                                        <h6 class="name" style="display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;text-align: left !important; font-size:15px;">{{$item->name}}</h6>
-                                        <h5 style="font-size: 25px; text-align: center; font-weight: bold; margin-top:20px;">${{$item->selling_price}}</h5>
-                                    </div>
-                                    {{-- <p>
-                                        @for($i = 0; $i < 5; $i++)
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input" id="color-1">
+                        <label class="custom-control-label" for="color-1">Black</label>
+                        <span class="badge border font-weight-normal">150</span>
+                    </div>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input" id="color-2">
+                        <label class="custom-control-label" for="color-2">White</label>
+                        <span class="badge border font-weight-normal">295</span>
+                    </div>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input" id="color-3">
+                        <label class="custom-control-label" for="color-3">Red</label>
+                        <span class="badge border font-weight-normal">246</span>
+                    </div>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input" id="color-4">
+                        <label class="custom-control-label" for="color-4">Blue</label>
+                        <span class="badge border font-weight-normal">145</span>
+                    </div>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
+                        <input type="checkbox" class="custom-control-input" id="color-5">
+                        <label class="custom-control-label" for="color-5">Green</label>
+                        <span class="badge border font-weight-normal">168</span>
+                    </div>
+                </form>
+            </div>
+            <!-- Color End -->
 
-                                        <?php
-                                        // $checkstar =$rating_value - $i;
-                                        ?>
+            <!-- Size Start -->
+            <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Filter by size</span></h5>
+            <div class="bg-light p-4 mb-30">
+                <form>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input" checked id="size-all">
+                        <label class="custom-control-label" for="size-all">All Size</label>
+                        <span class="badge border font-weight-normal">1000</span>
+                    </div>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input" id="size-1">
+                        <label class="custom-control-label" for="size-1">XS</label>
+                        <span class="badge border font-weight-normal">150</span>
+                    </div>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input" id="size-2">
+                        <label class="custom-control-label" for="size-2">S</label>
+                        <span class="badge border font-weight-normal">295</span>
+                    </div>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input" id="size-3">
+                        <label class="custom-control-label" for="size-3">M</label>
+                        <span class="badge border font-weight-normal">246</span>
+                    </div>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input" id="size-4">
+                        <label class="custom-control-label" for="size-4">L</label>
+                        <span class="badge border font-weight-normal">145</span>
+                    </div>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
+                        <input type="checkbox" class="custom-control-input" id="size-5">
+                        <label class="custom-control-label" for="size-5">XL</label>
+                        <span class="badge border font-weight-normal">168</span>
+                    </div>
+                </form>
+            </div>
+            <!-- Size End -->
+        </div>
+        <!-- Shop Sidebar End -->
 
-                                        @if($checkstar >= 1 )
 
-                                        <small class="fas fa-star checked"></small>
-
-                                        @elseif( $checkstar < 1 && $checkstar > 0)
-
-                                        <small class="fas fa-star-half-alt checked"></small>
-
-                                        @else
-                                        <small class="far fa-star"></small>
-                                        @endif
-                                        @endfor
-                                        <span> {{$rating->count()}} review</span>
-                                    </p> --}}
+        <!-- Shop Product Start -->
+        <div class="col-lg-9 col-md-8">
+            <div class="row pb-3">
+                <div class="col-12 pb-1">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div>
+                            <button class="btn btn-sm btn-light"><i class="fa fa-th-large"></i></button>
+                            <button class="btn btn-sm btn-light ml-2"><i class="fa fa-bars"></i></button>
+                        </div>
+                        <div class="ml-2">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Sorting</button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="#">Latest</a>
+                                    <a class="dropdown-item" href="#">Popularity</a>
+                                    <a class="dropdown-item" href="#">Best Rating</a>
                                 </div>
-                            </a>
+                            </div>
+                            <div class="btn-group ml-2">
+                                <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Showing</button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="#">10</a>
+                                    <a class="dropdown-item" href="#">20</a>
+                                    <a class="dropdown-item" href="#">30</a>
+                                </div>
+                            </div>
                         </div>
-                        @endforeach
                     </div>
-                    {{ $all_product}}
                 </div>
+                @foreach ($all_product as $item)
+                @php
+                $images = json_decode($item->image)
+                @endphp
+                <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
+                    <div class="product-item bg-light mb-4">
+                        <div class="product-img position-relative overflow-hidden">
+                            <img class="img-fluid w-100 pt-3" src="{{asset('upload/product/'.$images[0])}}" alt="">
+                            <div class="product-action">
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-eye"></i></a>
+                                
+                            </div>
+                        </div>
+                        <div class="text-center py-4">
+                            <p class="px-3">{{$item->name}}</p>
+                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                <h5>${{$item->selling_price}}</h5>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small>(99)</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+                <div class="col-12">
+                    <nav>
+                      <ul class="pagination justify-content-center">
+                        <li class="page-item disabled"><a class="page-link" href="#">Previous</span></a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
-    </section>
-    @include('layouts.inc.footer')
-    @endsection
-    @section('script')
-    <script>
-        $(document).ready(function(){
+    </div>
+    <!-- Shop Product End -->
+</div>
+</div>
 
-            $('.addTocartBtn').click(function(e){
-                e.preventDefault();
-                var product_id = $(this).closest('.prod_data').find('.prod_id').val();
-                var product_qty = $(this).closest('.prod_data').find('.qty-input').val();
-                alert
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                $.ajax({
-                    method: "GET",
-                    url: "{{ url('add-to-cart')}}"+"/",
-                    data: {
-                        'product_id' : product_id,
-                        'product_qty' : product_qty,
-                    },
-                    success: function (response){
-                        swal(response.status);
+@include('layouts.inc.footer')
+@endsection
+@section('script')
+<script>
+    $(document).ready(function(){
 
-                    },
-                    error: function(XMLHttpRequest, textStatus, errorThrown) {
-                        // alert(errorThrown)
-                        if(errorThrown == 'Unauthorized'){
-                            swal('Login to continue')
-                        }
-                    }
-
-                });
-
-            });
-
-            $('.addToWishlist').click(function (e) {
-                // e.preventDefault();
-                var product_id= $(this).val();
-                console.log(product_id);
-                $.ajax({
-                    method : "get",
-                    url : "{{url('/add-to-wishlist')}}",
-                    data :{
-                        'prod_id' : product_id,
-                    },
-                    success: function (response){
-                        swal(response.status);
-                    }
-                })
-            });
-
+        $('.addTocartBtn').click(function(e){
+            e.preventDefault();
+            var product_id = $(this).closest('.prod_data').find('.prod_id').val();
+            var product_qty = $(this).closest('.prod_data').find('.qty-input').val();
+            alert
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
+            $.ajax({
+                method: "GET",
+                url: "{{ url('add-to-cart')}}"+"/",
+                data: {
+                    'product_id' : product_id,
+                    'product_qty' : product_qty,
+                },
+                success: function (response){
+                    swal(response.status);
+
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        // alert(errorThrown)
+                    if(errorThrown == 'Unauthorized'){
+                        swal('Login to continue')
+                    }
+                }
+
+            });
+
         });
-    </script>
-    @endsection
+
+        $('.addToWishlist').click(function (e) {
+                // e.preventDefault();
+            var product_id= $(this).val();
+            console.log(product_id);
+            $.ajax({
+                method : "get",
+                url : "{{url('/add-to-wishlist')}}",
+                data :{
+                    'prod_id' : product_id,
+                },
+                success: function (response){
+                    swal(response.status);
+                }
+            })
+        });
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    });
+</script>
+@endsection
