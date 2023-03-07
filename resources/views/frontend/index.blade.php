@@ -151,7 +151,7 @@ Welcome To Delight
                     </div>
                 </div>
                 <div class="text-center py-4">
-                    <p  class="p-3">{{ $val->name }}</p>
+                    <p  class="p-3" >{{ $val->name }}</p>
                     <div class="d-flex align-items-center justify-content-center mt-2">
                         <h5>${{ $val->selling_price }}</h5>
                     </div>
