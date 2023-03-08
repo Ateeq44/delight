@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\frontend;
-
+use App\Helpers\customHelpers;
 use App\Http\Controllers\Controller;
 use App\Models\blog;
 use App\Models\cart;
@@ -14,6 +14,7 @@ class blogcontroller extends Controller
 {
     public function blog()
     {
+        $Helper = category();
         $wishlist = wishlist::where('user_id', Auth::id())->get();
         $cartitem = cart::where('user_id', Auth::id())->get();
         $blog = blog::where('status', '1')->take(4000)->get();

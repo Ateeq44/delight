@@ -111,7 +111,7 @@ Welcome To Delight
     <div class="row px-xl-5 pb-3">
         @foreach($trending_category as $val)
         <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-            <a class="text-decoration-none" href="">
+            <a class="text-decoration-none" href="{{url('view-category/'.$val->slug)}}">
                 <div class="cat-item d-flex align-items-center mb-4">
                     <div class="overflow-hidden" style="width: 100px; height: 100px;">
                         <img class="img-fluid" src="img/cat-1.jpg" alt="">
@@ -146,8 +146,8 @@ Welcome To Delight
                     <div class="product-action">
                         <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
                         <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                        <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
-                        <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
+                        <a href="{{url('view-category/'.$val->category->slug.'/'.$val->slug)}}" class="btn btn-outline-dark btn-square" href=""><i class="fa fa-eye"></i></a>
+                        
                     </div>
                 </div>
                 <div class="text-center py-4">
@@ -216,7 +216,7 @@ Welcome To Delight
                     <div class="product-action">
                         <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
                         <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                        <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-eye"></i></a>
+                        <a href="{{url('view-category/'.$item->category->slug.'/'.$item->slug)}}" class="btn btn-outline-dark btn-square" href=""><i class="far fa-eye"></i></a>
                     </div>
                 </div>
                 <div class="text-center py-4">
