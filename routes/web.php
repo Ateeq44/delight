@@ -23,6 +23,7 @@ Route::get('search', [App\Http\Controllers\frontend\frontendcontroller::class, '
 // Route::get('mail', [App\Http\Controllers\frontend\mailcontroller::class, 'sendmail']);
 Route::get('/', [App\Http\Controllers\frontend\frontendcontroller::class, 'index']);
 Route::get('view-category/{slug}', [App\Http\Controllers\frontend\frontendcontroller::class, 'view_category']);
+Route::get('subcategory/{slug}', [App\Http\Controllers\frontend\frontendcontroller::class, 'view_subcategory']);
 Route::get('shop', [App\Http\Controllers\frontend\frontendcontroller::class, 'shop']);
 Route::get('view-category/{cate_slug}/{pro_slug}', [App\Http\Controllers\frontend\frontendcontroller::class, 'view_product']);
 Route::get('My-Profile', [App\Http\Controllers\HomeController::class, 'myprofile']);

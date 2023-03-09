@@ -113,10 +113,10 @@ Welcome To Delight
         <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
             <a class="text-decoration-none" href="{{url('view-category/'.$val->slug)}}">
                 <div class="cat-item d-flex align-items-center mb-4">
-                    <div class="overflow-hidden" style="width: 100px; height: 100px;">
+                    <div class="overflow-hidden" style=" height: 100px;">
                         <img class="img-fluid" src="img/cat-1.jpg" alt="">
                     </div>
-                    <div class="flex-fill pl-3">
+                    <div class="flex-fill d-flex justify-content-center">
                         <h6>{{ $val->name }}</h6>
                         <small class="text-body"></small>
                     </div>

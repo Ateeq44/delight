@@ -11,6 +11,7 @@ use App\Models\wishlist;
 use Illuminate\Http\Request;
 use App\Models\category;
 use App\Models\product;
+use App\Models\SubCategory;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use Mail;
@@ -46,15 +47,14 @@ class frontendcontroller extends Controller
         $cartitem = cart::where('user_id', Auth::id())->get();
         $wishlist = wishlist::where('user_id', Auth::id())->get();
 
-        if (category::where('slug', $slug)->exists()) {
-            $category = category::where('slug', $slug)->first();
+        $category = category::where('slug', $slug)->first();
+        $scategory = SubCategory::where('category_id', $category->id)->where('status', '1')->get();
+        
             // Related product
-            $products = product::where('cate_id', $category->id)->where('status', '1')->get();
-            return view('frontend.productByCategory', compact('category', 'products', 'cartitem', 'wishlist'));
-        }
-        else{
-            return redirect('/')->with('status', 'Slug Does not Exists');
-        }
+        $products = product::where('cate_id', $category->id)->where('status', '1')->get();
+        //$subcatgory = SubCategory::where('category_id', $scategory->id)->where('status', '1')->get();
+
+        return view('frontend.productByCategory', compact('category', 'products', 'cartitem', 'wishlist', 'scategory'));
     }
 
     public function view_product($cate_slug, $pro_slug)
@@ -112,7 +112,7 @@ class frontendcontroller extends Controller
                 }
             })->orWhere('name', 'like', "%{$d}%");
 
-            $all_product = $record->orderByRaw("
+        $all_product = $record->orderByRaw("
             CASE WHEN name LIKE '".$d."' THEN 0 ELSE 1 END,
             CASE WHEN name regexp '(^|[[:space:]])$d([[:space:]]|$)' THEN 0 ELSE 1 END,
             CASE WHEN name LIKE '".$d."%' THEN 0 ELSE 1 END,
@@ -121,20 +121,23 @@ class frontendcontroller extends Controller
             ")->paginate(8);
 
 
-            $all_category = Category::all();
-            return view('frontend.shop' , compact(['record', "all_category", 'all_product','wishlist','cartitem']));
-        }
-
-
-
-
-
-
-
-
-
-
-
+        $all_category = Category::all();
+        return view('frontend.shop' , compact(['record', "all_category", 'all_product','wishlist','cartitem']));
     }
+
+
+
+
+    public function view_subcategory($slug)
+    {
+        $category = category::where('slug', $slug)->first();
+
+        $cartitem = cart::where('user_id', Auth::id())->get();
+        $wishlist = wishlist::where('user_id', Auth::id())->get();
+        $SubCategory = SubCategory::where('slug', $slug)->first();
+        $scategory = product::where('sub_cate_id', $SubCategory->id)->where('status', '1')->get();
+        return view('frontend.productbysubcategory', compact('SubCategory', 'scategory', 'cartitem', 'wishlist', 'category'));
+    }
+}
 
 

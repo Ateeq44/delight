@@ -1,8 +1,9 @@
 <?php
-	
+
 use App\Models\category;
-	
 
 function category() {
 	$all_category = category::where('status', '1')->get();
+	return $all_category;
 }
+

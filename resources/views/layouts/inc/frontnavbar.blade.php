@@ -30,13 +30,6 @@
         @endguest
 
       </li>
-      {{-- <div class="btn-group">
-        <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">My Profile</button>
-        <div class="dropdown-menu dropdown-menu-right">
-          <button class="dropdown-item" type="button">Sign in</button>
-          <button class="dropdown-item" type="button">Sign up</button>
-        </div>
-      </div> --}}
     </div>
   </div>
 </div>
@@ -48,18 +41,13 @@
         <i class="fa fa-angle-down text-dark"></i>
       </a>
       <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
-        {{-- <div class="navbar-nav w-100">
+        <div class="navbar-nav w-100">
           @foreach ($all_category as $item)
           <div class="nav-item dropdown dropright">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{{url('view-category/'.$item->slug)}}" class="nav-item nav-link">{{$item->name}} <i class="fa fa-angle-right float-right mt-1"></i></a>
-            <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
-              <a href="" class="dropdown-item">Men's Dresses</a>
-              <a href="" class="dropdown-item">Women's Dresses</a>
-              <a href="" class="dropdown-item">Baby's Dresses</a>
-            </div>
+            <a class="nav-item nav-link" href="{{url('view-category/'.$item->slug)}}">{{$item->name}}</a>
           </div>
           @endforeach
-        </div> --}}
+        </div>
       </nav>
     </div>
     <div class="col-lg-9">
@@ -82,14 +70,15 @@
             @endif
           </div>
           <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
-            <a href="{{url('wishlist')}}" class="btn px-0">
-              <i class="fas fa-heart text-primary"></i>
-              <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;"></span>
-            </a>
-            <a href="{{url('cart')}}" class="btn px-0 ml-3">
+            <a href="{{url('cart')}}" class="btn px-0 ">
               <i class="fas fa-shopping-cart text-primary"></i>
-              <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;"></span>
+              <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">{{ $cartitem->count() }}</span>
             </a>
+            <a href="{{url('wishlist')}}" class="btn px-0 ml-3">
+              <i class="fas fa-heart text-primary"></i>
+              <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">{{ $wishlist->count() }}</span>
+            </a>
+            
           </div>
         </div>
       </nav>

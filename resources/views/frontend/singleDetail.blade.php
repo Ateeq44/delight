@@ -244,12 +244,10 @@ $images = json_decode($product->image);
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
                                 @endif
-
                             </div>
                         </div>
                     </div>
@@ -263,7 +261,7 @@ $images = json_decode($product->image);
 
 
 <!-- Products Start -->
-<div class="container-fluid py-5">
+{{-- <div class="container-fluid py-5">
     <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">You May Also Like</span></h2>
     <div class="row px-xl-5">
         <div class="col">
@@ -396,7 +394,7 @@ $images = json_decode($product->image);
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- Products End -->
 
 @include('layouts.inc.footer')

@@ -5,7 +5,6 @@ Blog
 @endsection
 
 @section('content')
-{{ category() }}
 
 <div class="container">
     <div class="row">

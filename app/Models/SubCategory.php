@@ -17,10 +17,5 @@ class SubCategory extends Model
 		'popular',
 	];
 
-	public function category()
-	{
-		return $this->belongsTo(category::class,'category_id', 'id');
-	}
-
 }
 

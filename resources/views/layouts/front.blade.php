@@ -49,6 +49,11 @@
 
 </head>
 <body>
+    @php
+
+        $all_category = category();
+
+    @endphp
 
     @include('layouts.inc.frontnavbar')
     <div class="content">
