@@ -21,11 +21,13 @@ class frontendcontroller extends Controller
     public function shop()
     {
         $all_product = product::with('category')->where('status', '1')->paginate(8);
+        $black = product::where('color', 'Black')->where('status', '1')->count();
+        $white = product::where('color', 'white')->where('status', '1')->count();
         $all_category = category::where('status', '1')->get();
         $cartitem = cart::where('user_id', Auth::id())->get();
         $wishlist = wishlist::where('user_id', Auth::id())->get();
 
-        return view('frontend.shop', compact('all_product' , "all_category", 'cartitem', 'wishlist'));
+        return view('frontend.shop', compact('all_product' , "all_category", 'cartitem', 'wishlist', 'black', 'white'));
     }
     public function index()
     {

@@ -121,20 +121,13 @@ class checkoutController extends Controller
         $payment = Paymentmethods::where('user_id', Auth::id())->get();
         Paymentmethods::destroy($payment);
 
-        return view('frontend.order.placeordershow', compact('order', 'cartitem', 'wishlist'));
+        return view('frontend.order.thankyou', compact('order', 'cartitem', 'wishlist'));
+    }
 
-            // if($request->action == 'homepage'){
-                //     $cartitem = cart::where('user_id', Auth::id())->get();
-                //     cart::destroy($cartitem);
-                //     return view('frontend.order.placeordershow', compact('order', 'cartitem', 'wishlist'));
-
-                // }
-                // if($request->action == 'same_form'){
-                    //     $data = [];
-                    //     $data['cartitem'] = $cartitem;
-                    //     $data['order_id'] = $order->id;
-                    //     return view('frontend.stripe', $data, compact('cartitem', 'wishlist'));
-                    // }
-
+    public function thankyou()
+    {
+        $wishlist = wishlist::where('user_id', Auth::id())->get();
+        $cartitem = cart::where('user_id', Auth::id())->get();
+        return view('frontend.order.thankyou', compact('cartitem', 'wishlist'));
     }
 }

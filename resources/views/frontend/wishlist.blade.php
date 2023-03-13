@@ -47,86 +47,81 @@ Wishlist
                         <tr>
                             <td class="align-middle"><img src="{{asset('upload/product/'.$images[0])}}" alt="" style="width: 50px;">{{$item->wishlistproducts->name}}</td>
                             <td class="align-middle">${{$item->wishlistproducts->selling_price}}</td>
-                        {{-- <td class="align-middle">{{$item->size}}</td>
-                        <td class="align-middle">{{$item->color}}</td> --}}
-                        <td class="align-middle">
-                            <div class="input-group quantity mx-auto" style="width: 100px;">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                    </button>
+                            <td class="align-middle">
+                                <div class="input-group quantity mx-auto" style="width: 100px;">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-primary btn-minus" >
+                                            <i class="fa fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-primary btn-plus">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                                <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="{{$item->prod_qty}}">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-sm btn-primary btn-plus">
-                                        <i class="fa fa-plus"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="align-middle">
-                            <button type="button" class="btn btn-primary addTocartBtn"  style="font-size: 15px;" value="{{$item->prod_id}}" style="width:155px;">
-                                <i class="fa-solid fa-shopping-cart" ></i>
-                                Add To Cart
-                            </button>
-                        </td>
+                            </td>
+                            <td class="align-middle">
+                                <button type="button" class="btn btn-primary addTocartBtn"  style="font-size: 15px;" value="{{$item->prod_id}}" style="width:155px;">
+                                    <i class="fa-solid fa-shopping-cart" ></i>
+                                    Add To Cart
+                                </button>
+                            </td>
 
-                        <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times " data-toggle="modal" data-target="#exampleModalCenter"></i></button></td>
+                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times " data-toggle="modal" data-target="#exampleModalCenter"></i></button></td>
 
-                    </tr>
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Wishlist Item Delete</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    Do you want to delete this item.
-                                </div>
-                                <div class="modal-footer">
-                                    <a class="btn btn-danger"  href="{{url('wishlist-delete/'.$item->id)}}">
-                                        Delete
-                                    </a>
+                        </tr>
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Wishlist Item Delete</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Do you want to delete this item.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a class="btn btn-danger"  href="{{url('wishlist-delete/'.$item->id)}}">
+                                            Delete
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    @endforeach
-
-                </tbody>
-            </table>
-        </div>
-
-        
-    </div>
-</div>
-@else
-<div class="container-fluid">
-    <div class="row px-xl-5">
-        <div class="col-12 d-flex justify-content-center">
-            <h5>Your Wishlist is Empty <a href="{{ url('shop') }}" class="btn btn-primary">Return to Shop</a></h5>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
-@endif
-<!-- Cart End -->
+    @else
+    <div class="container-fluid">
+        <div class="row px-xl-5">
+            <div class="col-12 d-flex justify-content-center">
+                <h5>Your Wishlist is Empty <a href="{{ url('shop') }}" class="btn btn-primary">Return to Shop</a></h5>
+            </div>
+        </div>
+    </div>
+    @endif
+    <!-- Cart End -->
 
-@include('layouts.inc.footer')
-@endsection
+    @include('layouts.inc.footer')
+    @endsection
 
 
 
-@section('script')
-<script>
+    @section('script')
+    <script>
 
-    $(document).ready(function() {
-        $('.addTocartBtn').click(function(e){
-            e.preventDefault();
-            var product_id = $(this).closest('.product_data').find('.prod_id').val();
-            var product_qty = $(this).closest('.product_data').find('.qty-input').val();
+        $(document).ready(function() {
+            $('.addTocartBtn').click(function(e){
+                e.preventDefault();
+                var product_id = $(this).closest('.product_data').find('.prod_id').val();
+                var product_qty = $(this).closest('.product_data').find('.qty-input').val();
                 // console.log(product_qty);
                 $.ajaxSetup({
                     headers: {
@@ -140,44 +135,44 @@ Wishlist
                         'product_id' : product_id,
                         'product_qty' : product_qty,
                     },
-                    success: function (response){
-                        swal(response.status);
+                    success: function (response,status){
+                        swal(response,status);
 
                     },
                 });
             });
 
-        $(document).on("click", ".increment-btn-qty", function () {
-            var inc_value=$(this).next().val();
-            var value = parseInt(inc_value) + 1;
-            $(this).next().val(value);
-        });
-        $(document).on("click", ".decrement-btn-qty", function () {
-            var inc_value=$(this).prev().val();
-            var value = parseInt(inc_value) - 1;
-            if(value > 0) {
-                $(this).prev().val(value);
-            }
-        });
-
-        function loadcart()
-        {
-
-            $.ajax({
-                method: "GET",
-                url: "{{ url('load-wishlist-data')}}"+"/",
-                success: function(response){
-                    $('.wishlist-count').html('');
-                    $('.wishlist-count').html('response.count');
-                    console.log(response.count);
+            $(document).on("click", ".increment-btn-qty", function () {
+                var inc_value=$(this).next().val();
+                var value = parseInt(inc_value) + 1;
+                $(this).next().val(value);
+            });
+            $(document).on("click", ".decrement-btn-qty", function () {
+                var inc_value=$(this).prev().val();
+                var value = parseInt(inc_value) - 1;
+                if(value > 0) {
+                    $(this).prev().val(value);
                 }
-            })
+            });
 
-        }
+            function loadcart()
+            {
 
-    });
+                $.ajax({
+                    method: "GET",
+                    url: "{{ url('load-wishlist-data')}}"+"/",
+                    success: function(response){
+                        $('.wishlist-count').html('');
+                        $('.wishlist-count').html('response.count');
+                        console.log(response.count);
+                    }
+                })
+
+            }
+
+        });
 
 
-</script>
-@endsection
+    </script>
+    @endsection
 

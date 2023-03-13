@@ -49,7 +49,7 @@ Cart
                         <td class="align-middle">{{$item->size}}</td>
                         <td class="align-middle">{{$item->color}}</td>
                         <td class="align-middle">
-                            {{-- <div class="input-group quantity mx-auto" style="width: 100px;">
+                            <div class="input-group quantity mx-auto" style="width: 100px;">
                                 <div class="input-group-btn">
                                     <button class="btn btn-sm btn-primary btn-minus" >
                                         <i class="fa fa-minus"></i>
@@ -61,16 +61,7 @@ Cart
                                         <i class="fa fa-plus"></i>
                                     </button>
                                 </div>
-                            </div> --}}
-
-
-                                <div class="qty-container">
-                                    <button class="qty-btn-minus btn-primary" type="button"><i class="fa fa-minus"></i></button>
-                                    <input type="text" name="qty" value="1" class="input-qty"/>
-                                    <button class="qty-btn-plus btn-primary" type="button"><i class="fa fa-plus"></i></button>
-                                </div>
-                            
-
+                            </div>
                         </td>
                         @php
                         @$totalprice = $item->cartproducts->selling_price * $item->prod_qty;
@@ -180,10 +171,6 @@ Cart
             }
         });
 
-
-
-
-
         $('.quantitychange').click(function (e) {
             e.preventDefault();
             var prod_id = $(this).closest('.product_data').find('.prod_id').val();
@@ -197,8 +184,8 @@ Cart
                 method = "POST",
                 url = "update_cart",
                 data = "data",
-                success: function (response){
-                    alert(response);
+                success: function (response, status){
+                    alert(response , status);
                 }
             })
         });
@@ -242,22 +229,6 @@ Cart
 
     });
 
-
-    var buttonPlus  = $(".qty-btn-plus");
-    var buttonMinus = $(".qty-btn-minus");
-
-    var incrementPlus = buttonPlus.click(function() {
-      var $n = $(this).parent(".qty-container").find(".input-qty");
-      $n.val(Number($n.val())+1 );
-  });
-
-    var incrementMinus = buttonMinus.click(function() {
-      var $n = $(this).parent(".qty-container").find(".input-qty");
-      var amount = Number($n.val());
-      if (amount > 0) {
-        $n.val(amount-1);
-    }
-});
 </script>
 @endsection
 

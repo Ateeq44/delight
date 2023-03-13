@@ -51,6 +51,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('cart-delete/{id}', [App\Http\Controllers\frontend\cartcontroller::class, 'delete']);
     Route::get('checkout', [App\Http\Controllers\frontend\checkoutController::class, 'checkout']);
     Route::post('place_order', [App\Http\Controllers\frontend\checkoutController::class, 'placeorder']);
+    Route::get('thank_you', [App\Http\Controllers\frontend\checkoutController::class, 'thankyou']);
     Route::get('my_order', [App\Http\Controllers\frontend\userordercontroller::class, 'myorder']);
     Route::get('view_order/{id}', [App\Http\Controllers\frontend\userordercontroller::class, 'view']);
 

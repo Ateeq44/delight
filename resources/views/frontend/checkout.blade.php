@@ -187,7 +187,7 @@
 
 
     </div>
-
+    <a href="{{ url('thank_you') }}">Button</a>
     @include('layouts.inc.footer')
     @endsection
 
