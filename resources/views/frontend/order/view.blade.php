@@ -46,19 +46,20 @@
 
 .sidebar ul li a .fas,
 .sidebar ul li a .far {
-    color: #ddd;
+    color: #3D464D !important;
     font-size:25px !important;
 }
 
 .sidebar ul li a .link {
-    color: #fff;
+    color: #3D464D !important;
     font-weight: 500;
     margin-left:15px;
+    font-weight: 600;
 }
 
 .sidebar ul li a .link-desc {
     font-size: 0.8rem;
-    color: #ddd;
+    color: #3D464D !important;
     margin-left:15px;
 
 }
@@ -149,14 +150,14 @@
 }
 
 .order .btn.btn-primary {
-    background-color: #fff;
-    color: #28a745!important;
-    border: 1px solid #28a745!important;
+    background-color: #FFD333;
+    color: #3D464D !important;
+    border: 1px solid #FFD333 !important;
 }
 
 .order .btn.btn-primary:hover {
-    background-color: #28a745!important;
-    color: white !important;
+    background-color: #f3c51d !important;
+    color: #3D464D !important;
 }
 
 .order .progressbar-track {
@@ -313,10 +314,10 @@ My Profile
 @section('content')
 <div class="container my-4 ">
     <div class="row">
-        <div class="col-lg-3 my-lg-0 my-md-1 bg-purple">
+        <div class="col-lg-3 my-lg-0 my-md-1 bg-primary" style="height: 450px;">
 
             <div class="sidebar">
-                <div class="h4 text-white">Account</div>
+                <div class="h4 text-dark">Account</div>
                 <ul>
                     <li class="active">
                         <a href="{{url('My-Profile')}}" class="text-decoration-none d-flex align-items-start">
